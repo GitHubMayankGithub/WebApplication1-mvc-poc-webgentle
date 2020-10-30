@@ -30,5 +30,10 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             }
           
         }
+
+        public string Address(int Id,int? code)
+        {
+            return "Id : "+Id+" Code : "+code;
+        }
     }
 }
