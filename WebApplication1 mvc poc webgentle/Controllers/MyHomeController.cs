@@ -9,10 +9,10 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
     public class MyHomeController : Controller
     {
         // GET: MyHome
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        public ActionResult MyIndex()
+        {
+           return View();
+        }
 
 
         public string  Index()
