@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1_mvc_poc_webgentle.Models;
 
 namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
@@ -10,7 +11,8 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var data = GetEmployee();
+            return View(data);
         }
 
         public ActionResult About()
@@ -32,6 +34,18 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View("~/Views/customView/customView.cshtml");
+        }
+
+        private Employee GetEmployee()
+        {
+            return new Employee()
+            {
+                id = 1,
+                name="rahul",
+                address="allahabad"
+
+
+            };
         }
     }
 }
