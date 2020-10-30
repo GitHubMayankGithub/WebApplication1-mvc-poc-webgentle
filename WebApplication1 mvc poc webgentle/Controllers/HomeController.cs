@@ -17,7 +17,7 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("AboutRename");
         }
 
         public ActionResult Contact()
@@ -25,6 +25,13 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult CustomView()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View("~/Views/customView/customView.cshtml");
         }
     }
 }

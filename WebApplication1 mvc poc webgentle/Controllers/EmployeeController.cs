@@ -11,7 +11,7 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         // GET: Employee
         public string EmployeeProfile(int Id)
         {
-            string profile = "";
+            //string profile = "";
             if(Id==1)
             {
                 return "profile of user-1";
