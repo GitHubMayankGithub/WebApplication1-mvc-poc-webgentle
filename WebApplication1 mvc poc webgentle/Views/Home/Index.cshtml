@@ -3,8 +3,15 @@
 @{
     ViewBag.Title = "Home Page  ";
 }
+    <html>
+        <head>
+            @*<meta http-equiv="refresh" content="1" />*@
+            <h3 >@@Date & Time @DateTime.Now</h3>
 
-<h3>@DateTime.Now</h3>
+        </head>
+
+
+   
 
     <table class="table">
         <tr>
@@ -17,7 +24,7 @@
         </tr>
         <tr>
             <td>
-               Name
+                Name
             </td>
             <td>
                 @Model.name
@@ -25,11 +32,19 @@
         </tr>
         <tr>
             <td>
-               Address
+                Address
             </td>
             <td>
                 @Model.address
             </td>
         </tr>
 
-    </table>
+    </table>@{ 
+        bool isTrue = true;
+
+        if(isTrue)
+        {
+            <h2>Yes it is True :)</h2>
+        }
+    }
+</html>
