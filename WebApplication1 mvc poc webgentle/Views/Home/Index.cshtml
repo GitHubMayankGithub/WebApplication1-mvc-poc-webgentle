@@ -10,41 +10,54 @@
 
         </head>
 
+        <body>
+            <table class="table">
+                <tr>
+                    <td>
+                        Id
+                    </td>
+                    <td>
+                        @Model.id
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        @Model.name
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Address
+                    </td>
+                    <td>
+                        @Model.address
+                    </td>
+                </tr>
 
+            </table>@{
+                bool isTrue = true;
+
+                if (isTrue)
+                {
+                    <h2>Yes it is True :)</h2>
+                }
+            }
+
+
+            <div>
+                @for (int i = 0; i < 10; i++)
+                {
+                    <div style="background-color:aqua">
+                        hello from loop
+                    </div><br />
+
+                }
+            </div>
+        </body>
    
 
-    <table class="table">
-        <tr>
-            <td>
-                Id
-            </td>
-            <td>
-                @Model.id
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Name
-            </td>
-            <td>
-                @Model.name
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Address
-            </td>
-            <td>
-                @Model.address
-            </td>
-        </tr>
-
-    </table>@{ 
-        bool isTrue = true;
-
-        if(isTrue)
-        {
-            <h2>Yes it is True :)</h2>
-        }
-    }
+  
 </html>
