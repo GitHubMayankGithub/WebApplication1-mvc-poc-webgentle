@@ -3,78 +3,121 @@
 @{
     ViewBag.Title = "Home Page  ";
 }
-    <html>
-        <head>
-            @*<meta http-equiv="refresh" content="1" />*@
-            <h3 >@@Date & Time @DateTime.Now</h3>
+<html>
+<head>
+    @*<meta http-equiv="refresh" content="1" />*@
+    <h3>@@Date & Time @DateTime.Now</h3>
 
-        </head>
+</head>
 
-        <body>
-            <table class="table">
-                <tr>
-                    <td>
-                        Id
-                    </td>
-                    <td>
-                        @Model.id
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        @Model.name
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Address
-                    </td>
-                    <td>
-                        @Model.address
-                    </td>
-                </tr>
+<body>
+    <table class="table">
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>
+                @Model.id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                @Model.name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>
+                @Model.address
+            </td>
+        </tr>
 
-            </table>@{
-                bool isTrue = true;
+    </table>@*@{
+            bool isTrue = true;
 
-                if (isTrue)
+            if (isTrue)
+            {
+                <h2>Yes it is True :)</h2>
+            }
+        }*@
+
+
+    <div>
+        @*@for (int i = 0; i < 10; i++)
+            {
+                <div style="background-color:aqua">
+                    hello from loop  @i
+                </div><br />
+
+            }*@
+
+        @{
+            var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
+        }
+        @*<text>
+                var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
+            </text>*@
+    </div>
+
+    @*<div>
+            @{
+                foreach (var item in list)
                 {
-                    <h2>Yes it is True :)</h2>
+                    <h3>item = @item</h3>
+
                 }
             }
+        </div>*@
 
+    <div>
+        @helper MyListHelper(string[] str)
+        {
 
-            <div>
-                @*@for (int i = 0; i < 10; i++)
-                {
-                    <div style="background-color:aqua">
-                        hello from loop  @i
-                    </div><br />
-
-                }*@
-
-                @{ 
-                    var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
-                }
-                <text>
-                    var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
-                </text>
-            </div>
-
-            <div>
-                @{ 
-                    foreach (var item in list)
+            if (str.Length == 0)
+            {
+                <h2>no data exists</h2>
+            }
+            else
+            {
+                <ul>
+                    @foreach (var item in str)
                     {
-                        <h3>item = @item</h3>
-
+                        <li>@item</li>
                     }
-                }
-            </div>
-        </body>
-   
+                </ul>
+            }
 
-  
+        }
+    </div>
+    <div>
+        <label>new list 1</label>
+        <div>
+            @MyListHelper(new string[] { "amit", "rahul", "guddu" })
+        </div>
+
+
+        <label>new list 2 </label>
+        <div>
+            @MyListHelper(new string[] { ".net", "java", "python" })
+        </div>
+
+        <label>new list 3</label>
+        <div>
+            @MyListHelper(new string[] { "html", "css", "java script" })
+        </div>
+
+        <div>
+            @MyListHelper(new string[] { })
+        </div>
+
+    </div>
+</body>
+
+
+
 </html>
