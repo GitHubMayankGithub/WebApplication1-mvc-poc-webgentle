@@ -74,9 +74,18 @@
             }
         </div>*@
     <div>
-        @Html.ActionLink("click here to redirect", "Contact")
+        @Html.ActionLink("click here to redirect", "Contact")<br />
+    </div>
+    <div>
+        @Html.ActionLink("click here to redirect from Employee Controller", "Address1", "Employee", new { name = "test success for sending parmeter through actionLink" })
+    </div>
+    <div>
+        @Html.ActionLink("redirect from Employee Controller with parameter", "ParamteeWithActionLink", "Employee", new { name = "test success for sending parmeter through actionLink" })
     </div>
 
+    <div>
+        @Html.ActionLink("action link test-2", "ParamteeWithActionLink", new { name = "test success for sending parmeter through actionLink" })
+    </div>
     <div>
         @helper MyListHelper(string[] str)
         {

@@ -35,5 +35,15 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         {
             return "Id : "+Id+" Code : "+code;
         }
+
+        public string Address1()
+        {
+            return "test Action link redirect from another controller is successfull";
+        }
+
+        public string ParamteeWithActionLink(string str)
+        {
+            return str;
+        }
     }
 }

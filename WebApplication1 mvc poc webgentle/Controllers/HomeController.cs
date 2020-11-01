@@ -47,5 +47,10 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 
             };
         }
+
+        public string ParamteeWithActionLink(string name=null)
+        {
+            return name;
+        }
     }
 }
