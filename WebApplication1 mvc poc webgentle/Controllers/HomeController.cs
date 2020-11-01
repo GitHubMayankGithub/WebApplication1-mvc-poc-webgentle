@@ -35,7 +35,10 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 
             return View("~/Views/customView/customView.cshtml");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private Employee GetEmployee()
         {
             return new Employee()

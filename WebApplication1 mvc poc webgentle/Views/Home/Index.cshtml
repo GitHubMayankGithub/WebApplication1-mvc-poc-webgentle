@@ -73,6 +73,15 @@
                 }
             }
         </div>*@
+
+    <div>
+        @Html.TextBox("textBox1","Name ",new { id="newIdTest",value="newValue",name="newName",@class="newClass"})
+
+        @Html.CheckBox("1",true)
+    </div>
+    <div>
+        @Html.Password()
+    </div>
     <div>
         @Html.ActionLink("click here to redirect", "Contact")<br />
     </div>
