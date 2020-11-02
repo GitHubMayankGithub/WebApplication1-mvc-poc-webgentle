@@ -11,8 +11,17 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
     {
         public ActionResult Index()
         {
-            var data = GetEmployee();
-            return View(data);
+            //var data = GetEmployee();
+            Employee employee = new Employee()
+            {
+                name = "rahul",
+                address = "allahabad",
+                dob = DateTime.Now,
+                id = 22,
+                email = "email@gmail.com",
+                isOnline = true
+            };
+            return View(employee);
         }
 
         [HttpPost]
@@ -51,6 +60,10 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             {
                 name="rahul",
                 address="allahabad",
+                dob=DateTime.Now,
+                id=22,
+                email="email@gmail.com",
+                isOnline=true
 
 
             };
@@ -59,6 +72,14 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         public string ParamteeWithActionLink(string name=null)
         {
             return name;
+        }
+        public ActionResult Edit()
+        {
+            return View();
+        }  [HttpPost]
+        public ActionResult Edit(Employee emp)
+        {
+            return View(emp);
         }
     }
 }

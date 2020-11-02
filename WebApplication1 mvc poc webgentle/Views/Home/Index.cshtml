@@ -9,6 +9,22 @@
         align-content:center;
         text-transform:capitalize
     }
+
+    .display-label{
+        padding:6px;
+        width:320px;
+        background-color:aliceblue;
+        border-radius:5px;
+        align-content:center;
+    }
+
+    .display-field{
+        padding:6px;
+        width:320px;
+        background-color:blueviolet;
+        border-radius:5px;
+        align-content:center;
+    }
 </style>
 
 <html>
@@ -18,7 +34,34 @@
 </head>
 
 <body>
-    @using (Html.BeginForm("Index","Home",FormMethod.Post))
+    <div>
+        @Html.DisplayName("name")
+
+        <br />
+        <br />
+        @*strong binding*@
+        @Html.DisplayNameFor(x => x.dob)
+
+        <br />
+        <br />
+
+        @Html.DisplayText("name")
+        <br />
+        <br />
+        @Html.DisplayTextFor(v => v.dob) <br />
+        <br />
+        <br />
+        @Html.Display("email")
+        @Html.DisplayFor(x=>x.email)
+
+        <br />
+        <hr />
+        <hr />
+        <hr />
+        @Html.DisplayForModel()
+    </div>
+    
+    @*@using (Html.BeginForm("Index","Home",FormMethod.Post))
     {
 
         <div>
@@ -28,7 +71,7 @@
         </div>
 
 
-    }
+    }*@
 
 
     @*<div>
