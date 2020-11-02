@@ -3,41 +3,74 @@
 @{
     ViewBag.Title = "Home Page  ";
 }
+
+<style>
+    .modify{
+        align-content:center;
+        text-transform:capitalize
+    }
+</style>
+
 <html>
 <head>
     @*<meta http-equiv="refresh" content="1" />*@
-    <h3>@@Date & Time @DateTime.Now</h3>
 
 </head>
 
 <body>
-    <table class="table">
-        <tr>
-            <td>
-                Id
-            </td>
-            <td>
-                @Model.id
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Name
-            </td>
-            <td>
-                @Model.name
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Address
-            </td>
-            <td>
-                @Model.address
-            </td>
-        </tr>
+    @using (Html.BeginForm("Index","Home",FormMethod.Post))
+    {
 
-    </table>@*@{
+        <div>
+            @Html.TextBoxFor(x => x.name)<br /><br />
+            @Html.TextBoxFor(x => x.address)<br /><br />
+            <input type="submit" value="submit here" /><br /><br />
+        </div>
+
+
+    }
+
+
+    @*<div>
+        <label>name</label><br />
+        @Html.TextAreaFor(x => x.name)<br />
+        <label>address</label><br />
+        @Html.TextAreaFor(x => x.address)<br />
+
+        @Html.CheckBoxFor(x => x.isEmployed)
+        <label>IsEmployed</label><br />
+        <input type="submit" value="submit here" />
+    </div>*@
+    @*<table class="table">
+            <tr>
+                <td>
+                    Id
+                </td>
+                <td>
+                    @Model.id
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    @Model.name
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address
+                </td>
+                <td>
+                    @Model.address
+                </td>
+            </tr>
+
+        </table>*@
+
+
+    @*@{
             bool isTrue = true;
 
             if (isTrue)
@@ -47,22 +80,22 @@
         }*@
 
 
-    <div>
-        @*@for (int i = 0; i < 10; i++)
-            {
-                <div style="background-color:aqua">
-                    hello from loop  @i
-                </div><br />
+    @*<div>*@
+    @*@for (int i = 0; i < 10; i++)
+        {
+            <div style="background-color:aqua">
+                hello from loop  @i
+            </div><br />
 
-            }*@
+        }*@
 
-        @{
+    @{
+        var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
+    }
+    @*<text>
             var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
-        }
-        @*<text>
-                var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
-            </text>*@
-    </div>
+        </text>*@
+    @*</div>*@
 
     @*<div>
             @{
@@ -74,27 +107,27 @@
             }
         </div>*@
 
-    <div>
-        @Html.TextBox("textBox1","Name ",new { id="newIdTest",value="newValue",name="newName",@class="newClass"})
+    @*<div>
+            @Html.TextBox("textBox1", "Name ", new { id = "newIdTest", value = "newValue", name = "newName", @class = "newClass" })
 
-        @Html.CheckBox("1",true)
-    </div>
-    <div>
-        @Html.Password()
-    </div>
-    <div>
-        @Html.ActionLink("click here to redirect", "Contact")<br />
-    </div>
-    <div>
-        @Html.ActionLink("click here to redirect from Employee Controller", "Address1", "Employee", new { name = "test success for sending parmeter through actionLink" })
-    </div>
-    <div>
-        @Html.ActionLink("redirect from Employee Controller with parameter", "ParamteeWithActionLink", "Employee", new { name = "test success for sending parmeter through actionLink" })
-    </div>
+            @Html.CheckBox("1", true)
+        </div>*@
+    @*<div>
+            @Html.Password("")
+        </div>*@
+    @*<div>
+            @Html.ActionLink("click here to redirect", "Contact")<br />
+        </div>
+        <div>
+            @Html.ActionLink("click here to redirect from Employee Controller", "Address1", "Employee", new { name = "test success for sending parmeter through actionLink" })
+        </div>
+        <div>
+            @Html.ActionLink("redirect from Employee Controller with parameter", "ParamteeWithActionLink", "Employee", new { name = "test success for sending parmeter through actionLink" })
+        </div>
 
-    <div>
-        @Html.ActionLink("action link test-2", "ParamteeWithActionLink", new { name = "test success for sending parmeter through actionLink" })
-    </div>
+        <div>
+            @Html.ActionLink("action link test-2", "ParamteeWithActionLink", new { name = "test success for sending parmeter through actionLink" })
+        </div>*@
     <div>
         @helper MyListHelper(string[] str)
         {
@@ -115,29 +148,29 @@
 
         }
     </div>
-    <div>
-        <label>new list 1</label>
-        <div>
-            @MyListHelper(new string[] { "amit", "rahul", "guddu" })
-        </div>
+    @*<div>
+            <label>new list 1</label>
+            <div>
+                @MyListHelper(new string[] { "amit", "rahul", "guddu" })
+            </div>
 
 
-        <label>new list 2 </label>
-        <div>
-            @MyListHelper(new string[] { ".net", "java", "python" })
-        </div>
+            <label>new list 2 </label>
+            <div>
+                @MyListHelper(new string[] { ".net", "java", "python" })
+            </div>
 
-        <label>new list 3</label>
-        <div>
-            @MyListHelper(new string[] { "html", "css", "java script" })
-        </div>
+            <label>new list 3</label>
+            <div>
+                @MyListHelper(new string[] { "html", "css", "java script" })
+            </div>
 
-        <div>
-            <label>Empty list</label>
-            @MyListHelper(new string[] { })
-        </div>
+            <div>
+                <label>Empty list</label>
+                @MyListHelper(new string[] { })
+            </div>
 
-    </div>
+        </div>*@
 </body>
 
 

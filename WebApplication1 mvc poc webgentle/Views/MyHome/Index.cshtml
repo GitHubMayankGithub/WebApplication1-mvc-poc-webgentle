@@ -1,0 +1,23 @@
+﻿@using WebApplication1_mvc_poc_webgentle.Models
+@model  Employee
+
+@{
+    ViewBag.Title = "Index from myhome";
+}
+
+<h2>Index</h2>
+<html>
+<body>
+    @using(Html.BeginForm("myForm"))
+    {
+            @Html.TextBoxFor(x => x.name)
+    <br /><br />
+
+            @Html.TextBoxFor(x => x.address)
+    <br /><br />
+
+            <input type="submit" value="submit here" /><br /><br />
+    }
+</body>
+</html>
+

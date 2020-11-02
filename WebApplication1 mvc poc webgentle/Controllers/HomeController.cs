@@ -15,6 +15,12 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             return View(data);
         }
 
+        [HttpPost]
+        public ActionResult Index(Employee emp)
+        {
+            return View(emp);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -43,9 +49,8 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         {
             return new Employee()
             {
-                id = 1,
                 name="rahul",
-                address="allahabad"
+                address="allahabad",
 
 
             };
