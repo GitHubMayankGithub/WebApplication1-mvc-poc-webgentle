@@ -13,9 +13,84 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         // GET: Student
         public ActionResult Index()
         {
+
             return View();
         }
         
+        public ActionResult GetAllStudents()
+        {
+            var students = Students();
+            return View(students);
+        } 
+        public ActionResult GetStudent(int id)
+        {
+            var student = Students().FirstOrDefault(x => x.Id == id);
+            return View(student);
+        }
+        public ActionResult GetStudentAddress(int id)
+        {
+            var studentAddress = Students().Where(x => x.Id == id).Select(x => x.Address).FirstOrDefault();
+            return View(studentAddress);
+        }
+
+        private List<Student> Students()
+        {
+            return new List<Student>()
+            {
+            new Student()
+            {
+                Id = 1,
+                Name = "ayan",
+                Address = new Address()
+                {
+                    Hno = 123,
+                    Address1 = "lane-A",
+                    city = "pune"
+                }
+
+            },
+            new Student()
+            {
+                Id = 2,
+                Name = "ayan2",
+                Class = "a",
+                Address = new Address()
+                {
+                    Hno = 123,
+                    Address1 = "lane-A",
+                    city = "pune"
+                }
+
+            } ,
+            new Student()
+            {
+                Id = 3,
+                Name = "ayan3",
+                Class = "a",
+                Address = new Address()
+                {
+                    Hno = 123,
+                    Address1 = "lane-A",
+                    city = "pune"
+                }
+
+            },   new Student()
+            {
+                Id = 4,
+                Name = "ayan4",
+                Class = "a",
+                Address = new Address()
+                {
+                    Hno = 123,
+                    Address1 = "lane-A",
+                    city = "pune"
+                }
+
+            }
+            };
+            
+        }
+
         /// <summary>
         /// by befault get http verb
         /// </summary>

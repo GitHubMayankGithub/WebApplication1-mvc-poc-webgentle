@@ -9,5 +9,7 @@ namespace WebApplication1_mvc_poc_webgentle.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Class { get; set; }
+        public Address Address { get; set; }
     }
 }
