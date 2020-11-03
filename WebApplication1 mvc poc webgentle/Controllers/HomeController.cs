@@ -11,6 +11,25 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
     {
         public ActionResult Index()
         {
+            ViewData["MyKey"] = "value for the key";
+
+            ViewBag.MyProp = "my property from viewbag";
+
+            ViewBag.MyList = new List<string>() { "1", "2", "abd" };
+            ViewData["employeeData"] = new List<string>() { "C#", "java", "python" };
+
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee(){id=1,address="jsdfg",email="gma@gmail.com",isOnline=true,name="mayank"},
+                new Employee(){id=2,address="jsdfg",email="gma@gmail.com",isOnline=true,name="mayank"},
+                new Employee(){id=3,address="jsdfg",email="gma@gmail.com",isOnline=true,name="mayank"},
+                new Employee(){id=4,address="jsdfg",email="gma@gmail.com",isOnline=true,name="mayank"},
+                new Employee(){id=5,address="jsdfg",email="gma@gmail.com",isOnline=true,name="mayank"}
+            };
+
+            ViewBag.MyEmployeeList = employees;
+            //ViewData["employeeData"] = employees;
+
             //var data = GetEmployee();
             Employee employee = new Employee()
             {
@@ -22,6 +41,12 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
                 isOnline = true
             };
             return View(employee);
+        }
+
+        public ActionResult DemoViewData()
+        {
+            ViewData["MyKey"] = "value for the key";
+            return View();
         }
 
         [HttpPost]
