@@ -9,8 +9,20 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Index2()
+        {
+            ViewBag.MyData = TempData["myKey"];
+            return View();
+        }
+        public ActionResult Index3()
+        {
+            ViewBag.MyData = TempData["myKey"];
+            return View();
+        }
         public ActionResult Index()
         {
+            TempData["myKey"] = "data from tempData";
+
             ViewData["MyKey"] = "value for the key";
 
             ViewBag.MyProp = "my property from viewbag";
