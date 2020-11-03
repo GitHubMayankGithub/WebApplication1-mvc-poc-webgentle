@@ -11,13 +11,16 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
     {
         public ActionResult Index2()
         {
+            Session.Abandon();
             ViewBag.MyData = TempData["myKey"];
             TempData.Keep();
             return View();
         }
         public ActionResult Index3()
         {
-            ViewBag.MyData = TempData["myKey"];
+          
+            //ViewBag.MyData = TempData["myKey"];
+            ViewBag.MyData = TempData.Peek("myKey");
             return View();
         }
         public ActionResult Index()
