@@ -9,6 +9,21 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult NewIndex()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SubmitData(NewEmployee employee)
+        {
+            if(ModelState.IsValid)
+            {
+                return View();
+            }
+            return View("NewIndex");
+        }
+
         public ActionResult Index2()
         {
             Session.Abandon();

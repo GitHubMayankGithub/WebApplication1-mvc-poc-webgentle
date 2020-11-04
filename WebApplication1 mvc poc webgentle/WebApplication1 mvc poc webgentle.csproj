@@ -181,6 +181,8 @@
     <Content Include="Views\Student\GetStudent.cshtml" />
     <Content Include="Views\Student\GetStudentAddress.cshtml" />
     <Content Include="Views\NewHome\Index.cshtml" />
+    <Content Include="Views\Home\NewIndex.cshtml" />
+    <Content Include="Views\Home\SubmitData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
