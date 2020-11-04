@@ -8,6 +8,7 @@ using WebApplication1_mvc_poc_webgentle.Models;
 
 namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
+    [RoutePrefix("Students")]
     public class StudentController : Controller
     {
         // GET: Student
@@ -16,21 +17,39 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 
             return View();
         }
-        
+        [Route("")]
         public ActionResult GetAllStudents()
         {
             var students = Students();
             return View(students);
         } 
+
+        [Route("{id:int}")]
         public ActionResult GetStudent(int id)
         {
             var student = Students().FirstOrDefault(x => x.Id == id);
             return View(student);
         }
+
+        [Route("{id}/Address")]
         public ActionResult GetStudentAddress(int id)
         {
             var studentAddress = Students().Where(x => x.Id == id).Select(x => x.Address).FirstOrDefault();
             return View(studentAddress);
+        }
+
+        //[Route("{id:min(2)}")]
+        [Route("{id}")]
+        public string MyString(string id)
+        {
+            return id;
+        }
+
+        [Route("~/about-us")]
+        [Route("~/aboutus")]
+        public string AboutUs(string id)
+        {
+            return "This is about us!";
         }
 
         private List<Student> Students()
