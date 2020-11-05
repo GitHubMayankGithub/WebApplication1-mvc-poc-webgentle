@@ -17,7 +17,7 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         [Route("NewEmployee")]
         public ActionResult AddEmployee()
         {
-            return View();
+            return View("AddEmployee", "_NewLayout");
         }
 
 
