@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_NewLayout</title>
+</head>
+<body>
+    <header style="height:50px;background-color:red;align-content:center;">
+        <h2 style="align-content:center;margin-left:500px">Employee Management System</h2>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer style="height: 50px;
+        background-color: greenyellow">
+        <h2 style="margin-left:500px">Employee Copyright  EMS-2020</h2>
+        <br />
+        <br />
+        <br />
+        @DateTime.Now
+    </footer>
+</body>
+</html>

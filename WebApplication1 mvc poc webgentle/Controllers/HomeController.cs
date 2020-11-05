@@ -9,6 +9,12 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
     public class HomeController : Controller
     {
+
+        [Route("LayoutIndex")]
+        public ActionResult LayoutIndex()
+        {
+            return View();
+        }
         public ActionResult CustomValidationIndex()
         {
             return View();
