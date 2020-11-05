@@ -9,6 +9,22 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult CustomValidationIndex()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult CustomValidationIndex(NewEmployee newEmployee)
+        {
+            if (ModelState.IsValid)
+            {
+                ModelState.Clear();
+                return View();
+            }
+            return View("");
+        }
+        
         public ActionResult NewIndex()
         {
             return View();

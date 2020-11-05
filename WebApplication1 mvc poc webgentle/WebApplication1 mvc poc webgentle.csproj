@@ -129,6 +129,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MayanksValidation.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NewEmployee.cs" />
@@ -183,6 +184,7 @@
     <Content Include="Views\NewHome\Index.cshtml" />
     <Content Include="Views\Home\NewIndex.cshtml" />
     <Content Include="Views\Home\SubmitData.cshtml" />
+    <Content Include="Views\Home\CustomValidationIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
