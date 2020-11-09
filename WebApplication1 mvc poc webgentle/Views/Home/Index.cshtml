@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div>
+    @*<div>
         <h4>from view data :  @ViewData["MyKey"]</h4>
 
     </div>
@@ -67,8 +67,8 @@
             <li>isOnline -@item.isOnline</li>
             <hr style="width:1px" />
         }
-    </div>
-    <div>
+    </div>*@
+    @*<div>
         <h3>custom helpers using static class</h3><br />
 
         @CustomHelpers.Image(@"\5.jpg", "this is custom image")
@@ -82,7 +82,7 @@
         @Html.ImageTag(@"\5.jpg", "this is custom image")
 
 
-    </div>
+    </div>*@
 
     <div>
         @Html.DisplayName("name")
@@ -182,9 +182,9 @@
 
         }*@
 
-    @{
+    @*@{
         var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
-    }
+    }*@
     @*<text>
             var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
         </text>*@
@@ -221,7 +221,7 @@
         <div>
             @Html.ActionLink("action link test-2", "ParamteeWithActionLink", new { name = "test success for sending parmeter through actionLink" })
         </div>*@
-    <div>
+    @*<div>
         @helper MyListHelper(string[] str)
         {
 
@@ -240,7 +240,7 @@
             }
 
         }
-    </div>
+    </div>*@
     @*<div>
             <label>new list 1</label>
             <div>

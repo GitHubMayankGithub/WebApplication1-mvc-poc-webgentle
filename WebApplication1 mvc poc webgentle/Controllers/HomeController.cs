@@ -13,7 +13,7 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         [Route("LayoutIndex")]
         public ActionResult LayoutIndex()
         {
-            return View("LayoutIndex", "_NewLayout");
+            return View("LayoutIndex");
         }
         public ActionResult CustomValidationIndex()
         {

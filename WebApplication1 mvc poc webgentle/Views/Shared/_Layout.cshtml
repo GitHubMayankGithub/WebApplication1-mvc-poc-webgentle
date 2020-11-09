@@ -44,6 +44,11 @@
     <header style="height:50px;background-color:burlywood;align-content:center;">
         <h2 style="align-content:center;margin-left:500px">Employee Management System</h2>
     </header>
+    @RenderPage("~/Views/Home/Index3.cshtml")
+    <div>
+        Name-
+        @RenderSection("pageName", required: false)
+    </div>
     <div>
         @RenderBody()
     </div>
@@ -55,5 +60,9 @@
         <br />
         @DateTime.Now
     </footer>
+    <div>
+        Name-
+        @RenderSection("renderName", required: false)
+    </div>
 </body>
 </html>
