@@ -1,7 +1,21 @@
 ﻿
 @{
     ViewBag.Title = "Index3";
+
+    var page = Page;
+    var value1 = Page[0];
+    var value2 = Page[1];
+    var value3 = Page[2];
+
 }
 
 <h2>Hello from Index3</h2>
+<h3>
+    value1=@value1 <br />
+    value2=@value2 <br />
+    value3=@value3 <br />
+
+</h3>
 <h3> value--   @ViewBag.MyData</h3>
+
+

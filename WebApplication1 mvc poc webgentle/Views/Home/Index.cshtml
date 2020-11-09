@@ -2,8 +2,10 @@
 
 @{
     ViewBag.Title = "Home Page  ";
-}
 
+ 
+}
+@RenderPage("~/Views/Home/Index3.cshtml", "Mayank", "mvc", ".net")
 <style>
     .modify {
         align-content: center;
@@ -34,55 +36,56 @@
 </head>
 
 <body>
+  
     @*<div>
-        <h4>from view data :  @ViewData["MyKey"]</h4>
+            <h4>from view data :  @ViewData["MyKey"]</h4>
 
-    </div>
+        </div>
 
-    <div>
-        <h4>from view bag : @ViewBag.MyProp</h4>
+        <div>
+            <h4>from view bag : @ViewBag.MyProp</h4>
 
-    </div>
-    <div>
-        <h3>from view data Mylist :</h3><br />
-        @foreach (var item in (List<string>)(ViewData["employeeData"]))
-        {
-            <li>@item</li>
-        }
-    </div> <div>
-        <h4>from view bag Mylist :</h4><br />
-        @foreach (var item in ViewBag.MyList)
-        {
-            <li>@item</li>
-        }
-    </div>
-    <div>
-        <h4>from view bag MyEmployeeList :</h4><br />
-        @foreach (var item in ViewBag.MyEmployeeList)
-        {
-            <li>id -@item.id</li>
-            <li>Name -@item.name</li>
-            <li>address -@item.address</li>
-            <li>email -@item.email</li>
-            <li>isOnline -@item.isOnline</li>
-            <hr style="width:1px" />
-        }
-    </div>*@
+        </div>
+        <div>
+            <h3>from view data Mylist :</h3><br />
+            @foreach (var item in (List<string>)(ViewData["employeeData"]))
+            {
+                <li>@item</li>
+            }
+        </div> <div>
+            <h4>from view bag Mylist :</h4><br />
+            @foreach (var item in ViewBag.MyList)
+            {
+                <li>@item</li>
+            }
+        </div>
+        <div>
+            <h4>from view bag MyEmployeeList :</h4><br />
+            @foreach (var item in ViewBag.MyEmployeeList)
+            {
+                <li>id -@item.id</li>
+                <li>Name -@item.name</li>
+                <li>address -@item.address</li>
+                <li>email -@item.email</li>
+                <li>isOnline -@item.isOnline</li>
+                <hr style="width:1px" />
+            }
+        </div>*@
     @*<div>
-        <h3>custom helpers using static class</h3><br />
+            <h3>custom helpers using static class</h3><br />
 
-        @CustomHelpers.Image(@"\5.jpg", "this is custom image")
+            @CustomHelpers.Image(@"\5.jpg", "this is custom image")
 
-        <br />
-        <br />
-        <h3>custom helpers using extension method</h3><br />
-        @Html.Img(@"\5.jpg", "this is custom image") <br />
-        <br />
-        <h3>custom helpers using tag builder</h3><br />
-        @Html.ImageTag(@"\5.jpg", "this is custom image")
+            <br />
+            <br />
+            <h3>custom helpers using extension method</h3><br />
+            @Html.Img(@"\5.jpg", "this is custom image") <br />
+            <br />
+            <h3>custom helpers using tag builder</h3><br />
+            @Html.ImageTag(@"\5.jpg", "this is custom image")
 
 
-    </div>*@
+        </div>*@
 
     <div>
         @Html.DisplayName("name")
@@ -183,8 +186,8 @@
         }*@
 
     @*@{
-        var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
-    }*@
+            var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
+        }*@
     @*<text>
             var list = new List<int>() { 1, 2, 3, 3, 5, 4, 55, 33, 65, 33, 2 };
         </text>*@
@@ -222,25 +225,25 @@
             @Html.ActionLink("action link test-2", "ParamteeWithActionLink", new { name = "test success for sending parmeter through actionLink" })
         </div>*@
     @*<div>
-        @helper MyListHelper(string[] str)
-        {
-
-            if (str.Length == 0)
+            @helper MyListHelper(string[] str)
             {
-                <h4>no data exists</h4>
-            }
-            else
-            {
-                <ul>
-                    @foreach (var item in str)
-                    {
-                        <li>@item</li>
-                    }
-                </ul>
-            }
 
-        }
-    </div>*@
+                if (str.Length == 0)
+                {
+                    <h4>no data exists</h4>
+                }
+                else
+                {
+                    <ul>
+                        @foreach (var item in str)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+                }
+
+            }
+        </div>*@
     @*<div>
             <label>new list 1</label>
             <div>
