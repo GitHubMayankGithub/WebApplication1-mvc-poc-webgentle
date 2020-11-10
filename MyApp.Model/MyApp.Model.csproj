@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{388B738A-2A68-497E-BF61-52236F4C5165}</ProjectGuid>
+    <ProjectGuid>{F00843F4-5D95-4D21-B7DA-1D9F1EE66B56}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyApp.DB</RootNamespace>
-    <AssemblyName>MyApp.DB</AssemblyName>
+    <RootNamespace>MyApp.Model</RootNamespace>
+    <AssemblyName>MyApp.Model</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -40,12 +40,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Scaffolding.EntityFramework.12.0, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,62 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="AddressModel.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="DbOperations\EmployeeRepository.cs" />
-    <Compile Include="Employee.cs">
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="MyDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="MyDB.edmx.diagram">
-      <DependentUpon>MyDB.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MyDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-      <LastGenOutput>MyDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="MyDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyDB.edmx</DependentUpon>
-      <LastGenOutput>MyDB.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyApp.Model\MyApp.Model.csproj">
-      <Project>{f00843f4-5d95-4d21-b7da-1d9f1ee66b56}</Project>
-      <Name>MyApp.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
