@@ -198,6 +198,7 @@
     <Content Include="Views\Home\LayoutIndex.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\HomeCRUD\Create.cshtml" />
+    <Content Include="Views\HomeCRUD\GetAllRecords.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

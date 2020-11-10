@@ -40,5 +40,11 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
            
             return View();
         }
+
+        public ActionResult GetAllRecords()
+        {
+            var result = employeeRepository.GetAllEmployees();
+            return View(result);
+        }
     }
 }
