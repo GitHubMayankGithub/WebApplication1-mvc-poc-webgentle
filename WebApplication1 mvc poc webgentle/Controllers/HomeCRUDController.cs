@@ -46,5 +46,44 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             var result = employeeRepository.GetAllEmployees();
             return View(result);
         }
+
+        public ActionResult Details(int id)
+        {
+
+            var employee = employeeRepository.GetEmployee(id);
+            return View(employee);
+
+        }
+        
+        public ActionResult DetailsNew(int id)
+        {
+
+            var employee = employeeRepository.GetEmployee(id);
+            return View(employee);
+
+        }
+        
+        public ActionResult Edit(int id)
+        {
+
+            var employee = employeeRepository.GetEmployee(id);
+            return View(employee);
+
+        }
+        
+        [HttpPost]
+        public ActionResult Edit(EmployeeModel employeeModel)
+        {
+            if(ModelState.IsValid)
+            {
+                employeeRepository.UpdateEmployee(employeeModel.Id, employeeModel);
+                return RedirectToAction("GetAllRecords");
+            }
+
+            return View();
+
+        }
+
+        
     }
 }
