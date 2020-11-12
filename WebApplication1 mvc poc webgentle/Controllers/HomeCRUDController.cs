@@ -84,6 +84,15 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 
         }
 
-        
+        public ActionResult Delete(int id)
+        {
+
+            var employee = employeeRepository.DeleteEmployee(id);
+            return RedirectToAction("GetAllRecords");
+
+        }
+
+
+
     }
 }
