@@ -100,39 +100,79 @@ namespace MyApp.DB.DbOperations
 
         public bool UpdateEmployee(int id, EmployeeModel employeeModel)
         {
+            //using (var context = new EmployeeDBEntities())
+            //{
+            //    var employee = context.Employee.FirstOrDefault(x => x.Id == id);
+
+            //    if (employee != null)
+            //    {
+            //        employee.FirstName = employeeModel.FirstName;
+            //        employee.LastName = employeeModel.LastName;
+            //        employee.Code = employeeModel.Code;
+            //        employee.Email = employeeModel.Email;
+            //        //  employee.Address = employeeModel.Email;
+            //    }
+            //    context.SaveChanges();
+
+            //    return true;
+            //}
+            
+            //update using entity state in single hit to database
             using (var context = new EmployeeDBEntities())
             {
-                var employee = context.Employee.FirstOrDefault(x => x.Id == id);
+                var employee = new Employee();
 
                 if (employee != null)
                 {
+                    employee.Id = employeeModel.Id;
                     employee.FirstName = employeeModel.FirstName;
                     employee.LastName = employeeModel.LastName;
                     employee.Code = employeeModel.Code;
                     employee.Email = employeeModel.Email;
-                    //  employee.Address = employeeModel.Email;
+                    employee.AddressId = employeeModel.AddressId;
                 }
+
+                //changing the state to Modified
+                context.Entry(employee).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
 
                 return true;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool DeleteEmployee(int id)
         {
+            //using (var context = new EmployeeDBEntities())
+            //{
+            //    var employee = context.Employee.FirstOrDefault(x => x.Id == id);
+            //    if (employee != null)
+            //    {
+            //        context.Employee.Remove(employee);
+            //        context.SaveChanges();
+            //        return true;
+            //    }
+            //    return false;
+            //}
+            
+            //Deleting using entity state
             using (var context = new EmployeeDBEntities())
             {
-                var employee = context.Employee.FirstOrDefault(x => x.Id == id);
-                if (employee != null)
+                var employee = new Employee()
                 {
-                    context.Employee.Remove(employee);
-                    context.SaveChanges();
-                    return true;
-                }
-               
+                    Id = id
+                };
+                //changing the state to Deleted
+                context.Entry(employee).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+                return false;
             }
 
-            return false;
+          
         }
     }
 }
