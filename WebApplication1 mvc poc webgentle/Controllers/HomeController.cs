@@ -4,11 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1_mvc_poc_webgentle.Models;
+using Newtonsoft.Json;
+using MyApp.Model;
+using MyApp.DB.DbOperations;
 
 namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
     public class HomeController : Controller
     {
+        EmployeeRepository employeeRepository = null;
+
+        public HomeController()
+        {
+                employeeRepository = new EmployeeRepository();
+            
+        }
+        public JsonResult IndexForJsonResult()
+        {
+            var result = employeeRepository.GetAllEmployees();
+            var jsonResult = JsonConvert.SerializeObject(result,Formatting.Indented);
+            string json = jsonResult.Replace("\r\n", "");
+            //jsonResult.Replace(System.Environment.NewLine, string.Empty);
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+        
         public ActionResult IndexForJquery()
         {
             return View();
