@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyApp.Model;
-using MyApp.DB.DbOperations; 
+using MyApp.DB.DbOperations;
+using Newtonsoft.Json;
 
 namespace WebApplication1_mvc_poc_webgentle.Controllers
 {
@@ -45,6 +46,14 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
         {
             var result = employeeRepository.GetAllEmployees();
             return View(result);
+        }
+        
+        public JsonResult GetAllRecordsJsonFormat()
+        {
+            var result = employeeRepository.GetAllEmployees();
+            var jsonResult = JsonConvert.SerializeObject(result, Formatting.Indented);
+            string json = jsonResult.Replace("\r\n", "");
+            return Json(json, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(int id)

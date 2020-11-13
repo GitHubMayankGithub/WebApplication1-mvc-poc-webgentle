@@ -206,6 +206,7 @@
     <Content Include="Views\HomeCRUD\Edit.cshtml" />
     <Content Include="Views\Home\IndexForJquery.cshtml" />
     <Content Include="Views\Home\IndexForJsonResult.cshtml" />
+    <Content Include="Views\Home\AjaxForEmployeeList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
