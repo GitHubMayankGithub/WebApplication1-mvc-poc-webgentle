@@ -24,6 +24,8 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
 
             return View();
         }
+
+       
         
         [HttpPost]
         public ActionResult Create(EmployeeModel employeeModel)
@@ -54,6 +56,19 @@ namespace WebApplication1_mvc_poc_webgentle.Controllers
             var jsonResult = JsonConvert.SerializeObject(result, Formatting.Indented);
             string json = jsonResult.Replace("\r\n", "");
             return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+        public class TestMOdel
+        {
+            public string Name { get; set; }
+            public int Id { get; set; }
+        }
+
+        [HttpPost]
+        public JsonResult AddRecordJsonFormat(TestMOdel obj)
+        {
+           
+            return Json("true", JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Details(int id)

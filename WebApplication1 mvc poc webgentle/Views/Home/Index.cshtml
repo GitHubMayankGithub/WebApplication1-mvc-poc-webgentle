@@ -1,5 +1,4 @@
-﻿@*@model WebApplication1_mvc_poc_webgentle.Models.Employee*@
-@model IEnumerable<MyApp.Model.EmployeeModel>
+﻿@model WebApplication1_mvc_poc_webgentle.Models.Employee
 
 @{
     ViewBag.Title = "Home Page  ";
@@ -34,7 +33,37 @@
 <head>
     @*<meta http-equiv="refresh" content="1" />*@
     <script src="~/Scripts/jquery-3.5.1.js"></script>
-    <script type="text/javascript">
+    @*<script type="text/javascript">
+
+        function onClickFormSubmit() {
+            debugger;
+            var id = $("#txtId").val();
+            var name = $("#txtName").val();
+
+            var obj = {
+                Id=id,
+                Name=name
+            }
+
+            submitForm(obj);
+        }
+
+        function submitForm(obj) {
+            debugger;
+            $.ajax({
+                url: "/HomeCRUD/AddRecordJsonFormat",
+                method: "POST",
+                data: obj,
+                success: function (data) {
+                    alert(data);
+                    console.log("=========================");
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.error(err);
+                }
+            });
+        }
 
         function btnClick() {
             $.ajax({
@@ -53,78 +82,96 @@
         }
 
 
-    </script>
+    </script>*@
 </head>
 
 
 <body>
-    <div style="padding:50px;background-color:bisque">
-        <h2>Ajax call test</h2><br /><br />
-        <button type="button" onclick="btnClick()">Show List</button>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Code)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address.Details)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address.State)
-                </th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+    <div style="padding:50px;background-color:aqua">
+        <form id="form112" method="post">
+            <table>
                 <tr>
-                    <td id="Id">
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td id="FirstName">
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AddressId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Code)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address.Details)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address.State)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "DetailsNew", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
+                    <td>Enter ID: </td>
+                    <td><input type="text" name="txtId" /></td>
                 </tr>
-            }
-
-        </table>
-
+                <tr>
+                    <td>Enter Name: </td>
+                    <td><input type="text" name="txtName" /></td>
+                </tr>
+                @*<tr>
+                <td colspan="2"><input type="button" onclick="onClickFormSubmit()" value="Submit Form" /></td>
+            </tr>*@
+            </table>
+            <input type="button" onclick="onClickFormSubmit()" value="Submit Form" />
+        </form>
     </div>
+    @*<div style="padding:50px;background-color:bisque">
+            <h2>Ajax call test</h2><br /><br />
+            <button type="button" onclick="btnClick()">Show List</button>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address.Details)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address.State)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td id="Id">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td id="FirstName">
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AddressId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address.Details)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address.State)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "DetailsNew", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>*@
 
 
 
@@ -177,14 +224,14 @@
 
 
         </div>*@
-
+    @**@
     <div>
         @Html.DisplayName("name")
 
         <br />
         <br />
         @*strong binding*@
-        @Html.DisplayNameFor(x => x.dob)
+        @*@Html.DisplayNameFor(x => x.dob)*@
 
         <br />
         <br />
@@ -192,11 +239,11 @@
         @Html.DisplayText("name")
         <br />
         <br />
-        @Html.DisplayTextFor(v => v.dob) <br />
+        @*@Html.DisplayTextFor(v => v.dob)*@ <br />
         <br />
         <br />
         @Html.Display("email")
-        @Html.DisplayFor(x => x.email)
+        @*@Html.DisplayFor(x => x.email)*@
 
         <br />
         <hr />
@@ -363,3 +410,4 @@
 
 
 </html>
+<script src="~/Scripts/jquery-3.5.1.js"></script>

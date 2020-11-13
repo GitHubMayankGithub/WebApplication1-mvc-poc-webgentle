@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+    function onClickFormSubmit() {
+        debugger;
+        var name = $("#name1").val();
+
+        var obj = {
+         
+            Name:name
+        }
+
+        submitForm(obj);
+    }
+
+    function submitForm(obj) {
+        debugger;
+        $.ajax({
+            url: "/HomeCRUD/AddRecordJsonFormat",
+            method: "POST",
+            data: obj,
+            success: function (data) {
+                alert(data);
+                console.log("=========================");
+                console.log(data);
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        });
+    }
+
+    function btnClick() {
+        $.ajax({
+            url: "/HomeCRUD/GetAllRecordsJsonFormat",
+            method: "GET",
+            success: function (data) {
+                console.log(data);
+                data = JSON.parse(data);
+                console.log("=========================");
+                console.log(data);
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        });
+    }
+
+
+</script>
+<h2>Index</h2>
+
+
+<form style="padding:50px;background-color:aqua">
+    <input name="name" id="name1" />
+    <input type="button" onclick="onClickFormSubmit()" value="Submit Form" />
+
+</form>
+
+
